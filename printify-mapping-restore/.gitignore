@@ -1,0 +1,25 @@
+# WordPress
+*.log
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node (if ever added)
+node_modules/
+npm-debug.log
+
+# Build artifacts
+*.zip
+*.tar.gz
+
+# Sensitive
+.env
+config.local.php

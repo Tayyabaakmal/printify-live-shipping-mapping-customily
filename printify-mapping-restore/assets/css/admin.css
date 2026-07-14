@@ -1,0 +1,320 @@
+/* ============================================================
+   Printify Smart Mapping & Shipping — Admin Styles
+   Author: Tayyaba Akmal
+   ============================================================ */
+
+:root {
+    --pmr-primary:    #7952B3;
+    --pmr-primary-lt: #f3eeff;
+    --pmr-green:      #1E7E34;
+    --pmr-red:        #C82333;
+    --pmr-orange:     #D57A00;
+    --pmr-blue:       #0069B4;
+    --pmr-muted:      #6C757D;
+    --pmr-border:     #dee2e6;
+    --pmr-radius:     8px;
+    --pmr-shadow:     0 2px 8px rgba(0,0,0,.08);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+.pmr-wrap { max-width:100%; box-sizing:border-box; }
+.pmr-wrap *, .pmr-wrap *::before, .pmr-wrap *::after { box-sizing:border-box; }
+.pmr-muted { color:var(--pmr-muted); }
+.pmr-hidden { display:none !important; }
+
+/* ── Cards ────────────────────────────────────────────────── */
+.pmr-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:20px 0; }
+.pmr-card { background:#fff; border:1px solid var(--pmr-border); border-radius:var(--pmr-radius); padding:20px; box-shadow:var(--pmr-shadow); }
+.pmr-card__icon { font-size:32px; color:var(--pmr-primary); display:block; margin-bottom:10px; }
+.pmr-card h3 { margin:0 0 6px; font-size:15px; }
+.pmr-card p { color:var(--pmr-muted); margin:0 0 14px; font-size:13px; }
+
+/* ── Sections ─────────────────────────────────────────────── */
+.pmr-section { background:#fff; border:1px solid var(--pmr-border); border-radius:var(--pmr-radius); padding:20px; margin-bottom:20px; box-shadow:var(--pmr-shadow); }
+.pmr-section h2 { margin-top:0; font-size:16px; }
+.pmr-section--danger { border-color:#f5c6cb; background:#fff5f5; }
+
+/* ── Upload ───────────────────────────────────────────────── */
+.pmr-upload-area { border:2px dashed var(--pmr-border); border-radius:var(--pmr-radius); padding:32px 20px; text-align:center; cursor:pointer; transition:border-color .2s,background .2s; margin:16px 0; }
+.pmr-upload-area:hover,.pmr-upload-area.dragging { border-color:var(--pmr-primary); background:var(--pmr-primary-lt); }
+.pmr-upload-icon { font-size:40px; color:var(--pmr-primary); display:block; margin-bottom:8px; }
+.pmr-file-input { display:none; }
+.pmr-progress-bar { background:#e9ecef; border-radius:10px; height:8px; margin:12px 0 6px; overflow:hidden; }
+.pmr-progress-bar__fill { height:100%; width:60%; background:var(--pmr-primary); border-radius:10px; animation:pmr-ind 1.4s infinite; }
+@keyframes pmr-ind { 0%{transform:translateX(-100%)} 100%{transform:translateX(270%)} }
+
+/* ── Badges ───────────────────────────────────────────────── */
+.pmr-badge { display:inline-block; padding:2px 6px; border-radius:20px; font-size:10px; font-weight:600; margin-top:2px; }
+.pmr-badge--green  { background:#d4edda; color:var(--pmr-green); }
+.pmr-badge--orange { background:#fff3cd; color:var(--pmr-orange); }
+.pmr-badge--blue   { background:#cce5ff; color:var(--pmr-blue); }
+
+/* ════════════════════════════════════════════════════════════
+   REVIEW PAGE
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Review Header ────────────────────────────────────────── */
+.pmr-review-header {
+    background:#fff;
+    border:1px solid var(--pmr-border);
+    border-radius:var(--pmr-radius);
+    padding:14px 18px;
+    margin-bottom:12px;
+    box-shadow:var(--pmr-shadow);
+}
+
+/* ── Stats ────────────────────────────────────────────────── */
+.pmr-stats { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.pmr-stat { background:#f8f9fa; border:1px solid var(--pmr-border); border-radius:6px; padding:5px 12px; text-align:center; min-width:65px; font-size:12px; }
+.pmr-stat strong { display:block; font-size:18px; line-height:1.2; margin-bottom:1px; }
+.pmr-stat--approved strong { color:var(--pmr-green); }
+.pmr-stat--rejected strong { color:var(--pmr-red); }
+.pmr-stat--pending  strong { color:var(--pmr-orange); }
+.pmr-stat--applied  strong { color:var(--pmr-blue); }
+
+/* ── Bulk actions ─────────────────────────────────────────── */
+.pmr-bulk-actions { display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+.pmr-bulk-actions .button { font-size:11px; height:28px; line-height:26px; padding:0 9px; }
+
+/* ── Selected bar ─────────────────────────────────────────── */
+.pmr-bulk-selected { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px; padding:7px 12px; background:var(--pmr-primary-lt); border:1px solid #c9b3e8; border-radius:6px; font-size:12px; }
+.pmr-bulk-selected .button { font-size:11px; height:26px; line-height:24px; }
+
+/* ── Filter bar ───────────────────────────────────────────── */
+.pmr-filter-bar { display:flex; flex-wrap:wrap; align-items:center; gap:5px; margin-bottom:10px; padding:9px 14px; background:#fff; border:1px solid var(--pmr-border); border-radius:var(--pmr-radius); box-shadow:var(--pmr-shadow); }
+.pmr-filter-bar label { font-weight:600; font-size:12px; color:var(--pmr-muted); }
+.pmr-filter-btn { background:#f8f9fa; border:1px solid var(--pmr-border); border-radius:4px; padding:2px 10px; cursor:pointer; font-size:12px; line-height:1.6; transition:all .15s; }
+.pmr-filter-btn.active,.pmr-filter-btn:hover { background:var(--pmr-primary); border-color:var(--pmr-primary); color:#fff; }
+.pmr-search-input { margin-left:auto; padding:3px 9px; border:1px solid var(--pmr-border); border-radius:4px; font-size:12px; width:200px; }
+.pmr-search-input:focus { border-color:var(--pmr-primary); outline:none; box-shadow:0 0 0 2px rgba(121,82,179,.2); }
+#pmr-per-page { font-size:12px; padding:2px 5px; border:1px solid var(--pmr-border); border-radius:4px; }
+
+/* ── Table wrapper ────────────────────────────────────────── */
+.pmr-table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--pmr-border); border-radius:var(--pmr-radius); box-shadow:var(--pmr-shadow); }
+
+/* ════════════════════════════════════════════════════════════
+   REVIEW TABLE — fixed column layout
+   ════════════════════════════════════════════════════════════ */
+.pmr-review-table {
+    font-size:12px;
+    border-collapse:collapse;
+    width:100%;
+    table-layout:fixed;   /* fixed = we control every column width */
+}
+
+/* Column widths — must add up sensibly */
+.pmr-review-table col.col-check    { width:36px; }
+.pmr-review-table col.col-product  { width:220px; }
+.pmr-review-table col.col-csv      { width:180px; }
+.pmr-review-table col.col-conf     { width:90px; }
+.pmr-review-table col.col-ids      { width:200px; }
+.pmr-review-table col.col-method   { width:90px; }
+.pmr-review-table col.col-status   { width:80px; }
+.pmr-review-table col.col-actions  { width:86px; }
+
+.pmr-review-table th {
+    background:#f8f9fa;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    color:var(--pmr-muted);
+    padding:9px 10px;
+    border-bottom:2px solid var(--pmr-border);
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.pmr-review-table td {
+    padding:8px 10px;
+    vertical-align:middle;
+    border-bottom:1px solid #f0f0f0;
+    overflow:hidden;
+}
+.pmr-review-table tbody tr:last-child td { border-bottom:none; }
+.pmr-review-table tbody tr:hover { background:#fafafa; }
+
+/* Row states */
+.pmr-row--approved { background:#f0fff4 !important; }
+.pmr-row--rejected { background:#fff5f5 !important; opacity:.75; }
+.pmr-row--applied  { background:#e8f4fd !important; }
+
+/* ── Checkbox column ──────────────────────────────────────── */
+.pmr-review-table th.col-check,
+.pmr-review-table td.col-check {
+    width:36px;
+    padding:8px 0 8px 10px;
+    text-align:center;
+    vertical-align:middle;
+}
+.pmr-review-table td.col-check input[type="checkbox"],
+.pmr-review-table th.col-check input[type="checkbox"] {
+    margin:0;
+    vertical-align:middle;
+    cursor:pointer;
+    width:14px;
+    height:14px;
+}
+
+/* ── Product column ───────────────────────────────────────── */
+.pmr-review-table td.col-product { vertical-align:top; padding-top:9px; }
+.pmr-review-table td.col-product a { font-size:12px; font-weight:600; word-break:break-word; display:block; line-height:1.4; }
+.pmr-review-table td.col-product small { display:block; color:var(--pmr-muted); font-size:10px; margin-top:2px; }
+
+/* ── CSV Match column ─────────────────────────────────────── */
+.pmr-review-table td.col-csv { font-size:11px; word-break:break-word; vertical-align:top; padding-top:9px; color:#333; }
+
+/* ── Confidence column ────────────────────────────────────── */
+.pmr-review-table td.col-conf { vertical-align:middle; }
+.pmr-confidence { display:flex; flex-direction:column; align-items:flex-start; gap:3px; }
+.pmr-confidence__bar { width:56px; height:5px; background:#e9ecef; border-radius:10px; position:relative; overflow:hidden; }
+.pmr-confidence__bar::after { content:''; position:absolute; left:0;top:0;bottom:0; width:var(--pct); background:#6c757d; border-radius:10px; }
+.pmr-conf--high { color:var(--pmr-green); font-weight:700; font-size:12px; }
+.pmr-conf--med  { color:var(--pmr-orange); font-size:12px; }
+.pmr-conf--low  { color:var(--pmr-red); font-size:12px; }
+.pmr-row--approved .pmr-confidence__bar::after { background:var(--pmr-green); }
+.pmr-row--rejected .pmr-confidence__bar::after { background:var(--pmr-red); }
+
+/* ── Printify IDs column ──────────────────────────────────── */
+.pmr-review-table td.col-ids { vertical-align:top; padding-top:9px; }
+.pmr-ids-summary { font-size:10px; color:var(--pmr-muted); font-family:monospace; display:block; line-height:1.5; word-break:break-all; }
+.pmr-ids-toggle { font-size:10px !important; height:18px !important; line-height:16px !important; padding:0 5px !important; margin-top:3px !important; }
+.pmr-id-fields { margin-top:6px; }
+.pmr-id-row { display:grid; grid-template-columns:72px 1fr; align-items:center; gap:3px; margin-bottom:3px; }
+.pmr-id-label { font-size:10px; color:var(--pmr-muted); white-space:nowrap; }
+.pmr-id-input { font-size:11px; padding:2px 4px; height:22px; border:1px solid #ddd; border-radius:3px; width:100%; }
+.pmr-id-input:focus { border-color:var(--pmr-primary); outline:none; }
+.pmr-save-ids { margin-top:5px !important; height:22px !important; line-height:20px !important; font-size:11px !important; }
+
+/* ── Method column ────────────────────────────────────────── */
+.pmr-review-table td.col-method { vertical-align:middle; }
+.pmr-method-badge { font-size:10px; background:#f8f9fa; border:1px solid #ddd; border-radius:4px; padding:1px 5px; white-space:nowrap; font-family:monospace; display:inline-block; max-width:100%; overflow:hidden; text-overflow:ellipsis; }
+
+/* ── Status column ────────────────────────────────────────── */
+.pmr-review-table td.col-status { vertical-align:middle; }
+.pmr-status-badge { display:inline-block; padding:2px 7px; border-radius:12px; font-size:11px; font-weight:600; white-space:nowrap; }
+.pmr-status--pending  { background:#fff3cd; color:var(--pmr-orange); }
+.pmr-status--approved { background:#d4edda; color:var(--pmr-green); }
+.pmr-status--rejected { background:#f8d7da; color:var(--pmr-red); }
+.pmr-status--applied  { background:#cce5ff; color:var(--pmr-blue); }
+
+/* ── Actions column ───────────────────────────────────────── */
+.pmr-review-table td.col-actions { vertical-align:middle; white-space:nowrap; }
+.pmr-actions-cell { display:flex; gap:3px; align-items:center; flex-wrap:nowrap; }
+.pmr-actions-cell .button {
+    width:26px !important;
+    height:26px !important;
+    min-height:0 !important;
+    line-height:24px !important;
+    padding:0 !important;
+    text-align:center !important;
+    font-size:13px !important;
+    flex-shrink:0;
+}
+
+/* ── Pagination ───────────────────────────────────────────── */
+.pmr-pagination { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px; padding:9px 14px; background:#fff; border:1px solid var(--pmr-border); border-radius:var(--pmr-radius); font-size:12px; }
+#pmr-page-info { font-weight:600; }
+#pmr-total-info { color:var(--pmr-muted); font-size:11px; }
+
+/* ── Loading ──────────────────────────────────────────────── */
+#pmr-table-loading { padding:30px; text-align:center; font-size:13px; color:var(--pmr-muted); }
+.pmr-inline-notice { display:inline-block; margin:10px 0 0 !important; }
+.pmr-review-footer { margin-top:16px; padding-top:14px; border-top:1px solid var(--pmr-border); }
+
+/* ── Settings ─────────────────────────────────────────────── */
+.pmr-settings-table th { padding-right:16px; vertical-align:top; padding-top:8px; }
+.pmr-settings-table td input[type="text"],.pmr-settings-table td input[type="password"] { width:100%; max-width:400px; }
+.pmr-settings-actions { margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; }
+.pmr-btn-danger { color:#fff !important; background:var(--pmr-red) !important; border-color:var(--pmr-red) !important; }
+.pmr-btn-danger:hover { background:#a71d2a !important; }
+.pmr-options { margin:12px 0; }
+.pmr-checkbox-label { font-size:14px; font-weight:500; display:flex; align-items:flex-start; gap:8px; }
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width:1100px) {
+    .pmr-review-table col.col-product { width:180px; }
+    .pmr-review-table col.col-csv     { width:150px; }
+    .pmr-review-table col.col-ids     { width:170px; }
+}
+@media (max-width:900px) {
+    .pmr-review-table col.col-method  { width:0; }
+    .pmr-review-table th.col-method,
+    .pmr-review-table td.col-method   { display:none; }
+}
+@media (max-width:700px) {
+    .pmr-review-table col.col-csv     { width:0; }
+    .pmr-review-table th.col-csv,
+    .pmr-review-table td.col-csv      { display:none; }
+    .pmr-search-input { width:130px; }
+}
+
+/* ── Checkbox alignment fix ───────────────────────────────── */
+.pmr-review-table th.col-check,
+.pmr-review-table td.col-check {
+    width: 36px !important;
+    padding: 0 0 0 12px !important;
+    vertical-align: middle !important;
+    text-align: left !important;
+}
+.pmr-review-table th.col-check { padding-top: 0 !important; }
+.pmr-review-table td.col-check { vertical-align: top !important; padding-top: 10px !important; }
+.pmr-review-table .pmr-row-check,
+.pmr-review-table #pmr-check-all {
+    width: 15px !important;
+    height: 15px !important;
+    margin: 0 !important;
+    cursor: pointer;
+    display: block;
+}
+
+/* ── Page jump ────────────────────────────────────────────── */
+.pmr-page-jump { display:flex; align-items:center; gap:5px; margin-left:10px; font-size:12px; color:var(--pmr-muted); }
+.pmr-page-jump input { height:28px; }
+.pmr-page-jump .button { height:28px; line-height:26px; font-size:12px; }
+
+/* ── Filter bar responsive fix ───────────────────────────────────────────── */
+.pmr-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    row-gap: 8px;
+}
+.pmr-search-input {
+    flex: 1 1 160px;
+    min-width: 120px;
+    max-width: 220px;
+    margin-left: 0 !important;
+}
+#pmr-per-page {
+    flex-shrink: 0;
+    min-width: 90px;
+}
+
+/* Bulk actions wrap properly on smaller screens */
+.pmr-bulk-actions {
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+
+/* On narrow screens stack filter buttons */
+@media (max-width: 860px) {
+    .pmr-filter-bar { padding: 8px 10px; }
+    .pmr-search-input { max-width: 100%; flex: 1 1 120px; }
+    .pmr-bulk-actions .button { font-size: 11px; padding: 0 7px; }
+}
+
+@media (max-width: 640px) {
+    .pmr-filter-btn { font-size: 11px; padding: 2px 7px; }
+    .pmr-search-input { width: 100%; max-width: 100%; }
+    #pmr-per-page { width: 100%; }
+}
+
+/* ── Saved button state ───────────────────────────────────── */
+.pmr-saved-btn { background:#1e7e34 !important; border-color:#1e7e34 !important; color:#fff !important; }
+
+/* ── Unmatched modal ──────────────────────────────────────── */
+#pmr-unmatched-modal .button-primary { background:#7952b3; border-color:#7952b3; }
+#pmr-unmatched-modal input:focus { border-color:#7952b3; outline:none; box-shadow:0 0 0 2px rgba(121,82,179,.2); }
